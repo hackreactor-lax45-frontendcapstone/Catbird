@@ -10,8 +10,8 @@ export const fetchQuestionList = (product_id, page, count) => (dispatch) => {
   /*
       SDC-Refactor
   */
-  axios.get(`${API_URL}/qa/questions`, {
-    headers: { Authorization: API_KEY },
+  axios.get(`${'http://13.57.37.87:3000'}/qa/questions`, {
+    headers: { Authorization: API_KEY, 'Content-Type': 'application/json', 'access-control-allow-origin': '*' },
     params: {
     // product_id: product_id,
       product_id: 16056,
@@ -29,9 +29,9 @@ export const fetchQuestionList = (product_id, page, count) => (dispatch) => {
 };
 
 export const fetchAnswerList = (question_id, page, count) => axios.get(
-  `${API_URL}/qa/questions/${question_id}/answers`,
+  `${'http://13.57.37.87:3000'}/qa/questions/${question_id}/answers`,
   {
-    headers: { Authorization: API_KEY },
+    headers: { Authorization: API_KEY, 'Content-Type': 'application/json', 'access-control-allow-origin': '*' },
     params: {
       page,
       count,
@@ -40,8 +40,8 @@ export const fetchAnswerList = (question_id, page, count) => axios.get(
 );
 
 export const getProductName = (product_id) => (dispatch) => {
-  axios.get(`${API_URL}/products/${16056}`, {
-    headers: { Authorization: API_KEY },
+  axios.get(`${'http://13.57.37.87:3000'}/products/${16056}`, {
+    headers: { Authorization: API_KEY, 'Content-Type': 'application/json', 'access-control-allow-origin': '*' },
   })
     .then((result) => {
       dispatch({
@@ -55,10 +55,10 @@ export const getProductName = (product_id) => (dispatch) => {
 };
 
 export const markQuestionHelpful = (question_id) => axios.put(
-  `${API_URL}/qa/questions/${question_id}/helpful`,
+  `${'http://13.57.37.87:3000'}/qa/questions/${question_id}/helpful`,
   {},
   {
-    headers: { Authorization: API_KEY },
+    headers: { Authorization: API_KEY, 'Content-Type': 'application/json', 'access-control-allow-origin': '*' },
   },
 );
 
