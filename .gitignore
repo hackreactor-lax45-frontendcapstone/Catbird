@@ -6,7 +6,9 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-bundle.js
+*bundle.js
+bundle.js.map
+
 config.js
 catbird.pem
 client/dist/bundle.js.map
