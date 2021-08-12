@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
-// import { API_KEY, API_URL } from '../../../config/config.js';
+import { API_KEY, API_URL } from '../../../config/config.js';
 import { storage } from '../firebase/index';
 
 const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal, cb=()=>{} }) => {

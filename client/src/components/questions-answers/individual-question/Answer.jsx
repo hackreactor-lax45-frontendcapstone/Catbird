@@ -22,7 +22,7 @@ const [ reportClicked, setreportClicked ] = useState(false);
       /*
         SDC-Refactor
       */
-      axios.put(`${'http://13.57.37.87:3000'}/qa/answers/${answer.answer_id}/helpful`, {}, { headers: { Authorization: API_KEY} })
+      axios.put(`${'http://13.57.37.87:3000'}/qa/answers/${answer.answer_id}/helpful`, { helpful: 10 }, { headers: { Authorization: API_KEY} })
       .then(res => {
         addedHelpful = addedHelpful + 1;
       })
@@ -38,7 +38,7 @@ const [ reportClicked, setreportClicked ] = useState(false);
       /*
         SDC-Refactor
       */
-    axios.put(`${'http://13.57.37.87:3000'}/qa/answers/${answer.answer_id}/report`, {}, { headers: { Authorization: API_KEY} })
+    axios.put(`${'http://13.57.37.87:3000'}/qa/answers/${answer.answer_id}/report`, { reported: true }, { headers: { Authorization: API_KEY} })
       .then(res => {
         alert('Thank you for your feedback!');
       })
