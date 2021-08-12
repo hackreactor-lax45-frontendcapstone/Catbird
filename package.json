@@ -4,7 +4,7 @@
   "description": "catbird retail web portal redesign/overhaul",
   "main": "index.js",
   "scripts": {
-    "react:dev": "webpack --watch",
+    "react:dev": "npx webpack --watch",
     "start": "nodemon ./server/index.js",
     "test": "jest",
     "test-coverage": "jest --coverage",

@@ -23,18 +23,24 @@ const AddQuestionForm = ({ product_name, product_id, closeAddQuestionModal }) =>
 
     dispatch({ type: 'TOGGLE_ADD_QUESTION'});
 
-    axios.post(`${API_URL}/qa/questions`, {
+    /*
+        SDC-Refactor
+    */
+    axios.post(`${'http://13.57.37.87:3000'}/qa/questions`, {
       body: body,
       name: name,
       email: email,
       product_id: productIdNumber
     }, { headers: { Authorization: API_KEY } })
-    .then((res) => {
+    .then(res => {
       console.log(res.data);
       fetchQuestionList(product_id, 1, 1000);
-
     })
     .catch(err => console.log('error from AddQuestionForm handlesubmit post request', err));
+    /*
+        SDC-Refactor
+    */
+
   };
   return (
 

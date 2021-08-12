@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
-import { API_KEY, API_URL } from '../../../config/config.js';
+// import { API_KEY, API_URL } from '../../../config/config.js';
 import { storage } from '../firebase/index';
 
 const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal, cb=()=>{} }) => {
@@ -91,7 +91,10 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal, cb=()=
     e.preventDefault();
     dispatch({ type: 'TOGGLE_ADD_ANSWER'});
 
-    axios.post(`${API_URL}/qa/questions/${question_id}/answers`, {
+    /*
+        SDC-Refactor
+    */
+    axios.post(`${'http://13.57.37.87:3000'}/qa/questions/${question_id}/answers`, {
       body: body,
       name: name,
       email: email,
@@ -102,6 +105,10 @@ const AddAnswerForm = ({ question_body, question_id, closeAddAnswerModal, cb=()=
       console.log('Thank you for your feedback!', res.data)
     })
     .catch(err => console.log('error from AddAnswerForm handlesubmit post request', err));
+    /*
+        SDC-Refactor
+    */
+
     cb();
   };
 

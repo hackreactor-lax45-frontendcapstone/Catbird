@@ -19,21 +19,33 @@ const [ reportClicked, setreportClicked ] = useState(false);
     setaddHelpfulUsed(true);
 
     if (!addHelpfulUsed) {
-      axios.put(`${API_URL}/qa/answers/${answer.answer_id}/helpful`, {}, { headers: { Authorization: API_KEY} })
-      .then( (res) => {
+      /*
+        SDC-Refactor
+      */
+      axios.put(`${'http://13.57.37.87:3000'}/qa/answers/${answer.answer_id}/helpful`, {}, { headers: { Authorization: API_KEY} })
+      .then(res => {
         addedHelpful = addedHelpful + 1;
-      }
-      ).catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
+      /*
+        SDC-Refactor
+      */
     }
   }
 
   const reportAnswer = () => {
     setreportClicked(true);
-    axios.put(`${API_URL}/qa/answers/${answer.answer_id}/report`, {}, { headers: { Authorization: API_KEY} })
-      .then( (res) => {
+      /*
+        SDC-Refactor
+      */
+    axios.put(`${'http://13.57.37.87:3000'}/qa/answers/${answer.answer_id}/report`, {}, { headers: { Authorization: API_KEY} })
+      .then(res => {
         alert('Thank you for your feedback!');
-      }
-      ).catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
+      /*
+        SDC-Refactor
+      */
   }
 
 
